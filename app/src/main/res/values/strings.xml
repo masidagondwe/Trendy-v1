@@ -9,4 +9,25 @@
     <string name="sign_in">"Sign In"</string>
     <string name="forgot_password">"Forgot Password"</string>
     <string name="trendy_logo">"Trendy Logo"</string>
+
+    <!-- Fragment Tags -->
+    <string name="tag_fragment_home">Home</string>
+    <string name="tag_fragment_saved_connections">Saved Connections</string>
+    <string name="tag_fragment_messages">Messages</string>
+    <string name="tag_fragment_settings">Settings</string>
+    <string name="tag_fragment_gallery">Gallery</string>
+    <string name="tag_fragment_photo">Photo</string>
+    <string name="tag_fragment_view_profile">View Profile</string>
+    <string name="tag_fragment_chat">Chat</string>
+    <string name="tag_fragment_agreement">Agreement</string>
+
+    <!-- Dialog Messages -->
+    <string name="first_time_user_message">
+        I noticed this is your first login. Make sure to input your preferences in the Settings screen so we can find potential matches!
+    </string>
+
+
+    <string name="hello_blank_fragment">h</string>
+
+
 </resources>
