@@ -9,16 +9,16 @@ public class TrendyDeal implements Parcelable {
     private String name;
     private String rating;
     private String no_of_reviews;
-    private String status;
+    //private String status;
     private String min_price;
 
 
-    public TrendyDeal(String deal_image, String name, String rating, String no_of_reviews, String status, String min_price) {
+    public TrendyDeal(String deal_image, String name, String rating, String no_of_reviews, String min_price) {
         this.deal_image = deal_image;
         this.name = name;
         this.rating = rating;
         this.no_of_reviews = no_of_reviews;
-        this.status = status;
+       // this.status = status;
         this.min_price = min_price;
     }
 
@@ -30,7 +30,7 @@ public class TrendyDeal implements Parcelable {
         name = in.readString();
         rating = in.readString();
         no_of_reviews = in.readString();
-        status = in.readString();
+        //status = in.readString();
         min_price = in.readString();
     }
 
@@ -85,13 +85,13 @@ public class TrendyDeal implements Parcelable {
     }
 
 
-    public String getStatus() {
+/*    public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }
+    }*/
 
 
     public String getMin_price() {
@@ -115,7 +115,7 @@ public class TrendyDeal implements Parcelable {
         parcel.writeString(name);
         parcel.writeString(rating);
         parcel.writeString(no_of_reviews);
-        parcel.writeString(status);
+       // parcel.writeString(status);
         parcel.writeString(min_price);
     }
 

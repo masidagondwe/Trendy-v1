@@ -1,6 +1,5 @@
 package com.temwa.tech.trendy.util;
 
-import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,9 +30,10 @@ public class FirebaseUtil {
     public static ArrayList<TrendyDeal> mDeals;
     private static final int RC_SIGN_IN = 123;
     private static HomeFragment caller;
-    private FirebaseUtil(){};
     public static boolean isAdmin;
 
+
+    private FirebaseUtil(){}
 
     public static void openFbReference(String ref, final HomeFragment callerFragment) {
         if (firebaseUtil == null) {
@@ -52,7 +52,7 @@ public class FirebaseUtil {
                         String userId = firebaseAuth.getUid();
                         checkAdmin(userId);
                     }
-                    Toast.makeText(callerFragment.getContext(), "Welcome back!", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(callerFragment.getContext(), "Welcome back!", Toast.LENGTH_LONG).show();
                 }
             };
             connectStorage();
@@ -60,7 +60,7 @@ public class FirebaseUtil {
         }
 
         mDeals = new ArrayList<TrendyDeal>();
-       // mDatabaseReference = mFirebaseDatabase.getReference().child(ref);
+//        mDatabaseReference = mFirebaseDatabase.getReference().child(ref);
     }
 
     private static void signIn() {
@@ -115,13 +115,13 @@ public class FirebaseUtil {
     }
 
     public static void attachListener() {
-//        mFirebaseAuth.addAuthStateListener(mAuthListener);
+        mFirebaseAuth.addAuthStateListener(mAuthListener);
     }
     public static void detachListener() {
         mFirebaseAuth.removeAuthStateListener(mAuthListener);
     }
     public static void connectStorage() {
         mStorage = FirebaseStorage.getInstance();
-      //  mStorageRef = mStorage.getReference().child("deals_pictures");
+        mStorageRef = mStorage.getReference().child("deals_pictures");
     }
 }

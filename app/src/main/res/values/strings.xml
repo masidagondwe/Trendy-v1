@@ -12,7 +12,7 @@
 
     <!-- Fragment Tags -->
     <string name="tag_fragment_home">Home</string>
-    <string name="tag_fragment_saved_connections">Saved Connections</string>
+    <string name="tag_fragment_saved_deals">Saved Deals</string>
     <string name="tag_fragment_messages">Messages</string>
     <string name="tag_fragment_settings">Settings</string>
     <string name="tag_fragment_gallery">Gallery</string>
@@ -28,6 +28,13 @@
 
 
     <string name="hello_blank_fragment">h</string>
+
+    <!-- Intent and Bundle Extras -->
+    <string name="intent_new_camera_photo">intent_new_camera_photo</string>
+    <string name="intent_new_gallery_photo">intent_new_gallery_photo</string>
+    <string name="intent_user">intent_user</string>
+    <string name="intent_deal">intent_deal</string>
+    <string name="intent_message">intent_message</string>
 
 
 </resources>

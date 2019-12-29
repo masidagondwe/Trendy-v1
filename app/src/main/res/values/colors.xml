@@ -8,4 +8,6 @@
     <color name="blue3">#1E88E5</color>
     <color name="blue5">#0D47A1</color>
     <color name="linkBlue">#0000FF</color>
+    <color name="whitesmoke">#f5f5f5</color>
+    <color name="white">#fff</color>
 </resources>

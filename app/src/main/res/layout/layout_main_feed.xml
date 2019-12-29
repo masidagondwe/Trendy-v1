@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="@color/whitesmoke">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardMaxElevation="4dp"
+        card_view:cardElevation="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/card_view">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp">
+
+
+                <ImageView
+                    android:id="@+id/deal_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"/>
+
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/txt_margin_standard"
+                    android:layout_marginLeft="@dimen/txt_margin_standard"
+                    android:layout_marginTop="@dimen/txt_margin_standard"
+                    android:fontFamily="sans-serif-condensed"
+                    android:hint="Deal Title"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/deal_image"/>
+
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name"
+                    android:layout_marginStart="@dimen/txt_margin_standard"
+                    android:layout_marginLeft="@dimen/txt_margin_standard"
+                    android:layout_marginTop="@dimen/txt_margin_standard"
+                    android:text="Rating:"
+                    android:textColor="#000" />
+
+
+                <TextView
+                    android:id="@+id/no_of_reviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rating"
+                    android:layout_marginStart="@dimen/txt_margin_standard"
+                    android:layout_marginLeft="@dimen/txt_margin_standard"
+                    android:layout_marginTop="@dimen/txt_margin_standard"
+                    android:text="Rating:"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/min_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/no_of_reviews"
+                    android:layout_marginTop="@dimen/txt_margin_standard"
+                    android:layout_marginEnd="@dimen/txt_margin_standard"
+                    android:layout_alignParentRight="true"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_price"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+
+
+     <!--   <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="center"
+                android:id="@+id/deal_image"
+                android:src="@mipmap/ic_launcher"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/deal_image"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mitch"
+                    android:id="@+id/name"
+
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating:"
+                    android:id="@+id/rating"
+                    android:layout_below="@+id/name"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Females"
+                    android:id="@+id/no_of_reviews"
+                    android:layout_below="@+id/name"
+                    android:layout_toRightOf="@+id/rating"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Starting Price:"
+                    android:id="@+id/min_price"
+                    android:layout_below="@+id/rating"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"/>
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>-->
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

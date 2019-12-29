@@ -1,10 +1,12 @@
 package com.temwa.tech.trendy;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,10 @@ import android.view.ViewGroup;
 
 import com.temwa.tech.trendy.model.TrendyDeal;
 import com.temwa.tech.trendy.util.FirebaseUtil;
+import com.temwa.tech.trendy.util.PreferenceKeys;
+import com.temwa.tech.trendy.util.TrendyDeals;
+
+import java.util.ArrayList;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,14 +29,12 @@ public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
 
     //constants
-    private static final int NUM_COLUMNS = 2;
 
     //widgets
     private RecyclerView mRecyclerView;
 
     //vars
-    //private ArrayList<User> mMatches = new ArrayList<>();
-    private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
+    private ArrayList<TrendyDeal> mMatches = new ArrayList<>();
     private TrendyDealAdapter mRecyclerViewAdapter;
 
     @Override
@@ -41,50 +45,55 @@ public class HomeFragment extends Fragment {
         Log.d(TAG, "onCreateView: started.");
         mRecyclerView = view.findViewById(R.id.recycler_view_deals);
 
-        //findMatches();
+        findMatches();
 
         return view;
     }
 
 
-/*    private void findMatches() {
-        Users users = new Users();
+   private void findMatches() {
+       TrendyDeals users = new TrendyDeals();
         if (mMatches != null) {
             mMatches.clear();
         }
-        for (User user : users.USERS) {
+        for (TrendyDeal user : users.DEALS) {
             mMatches.add(user);
         }
         if (mRecyclerViewAdapter == null) {
             initRecyclerView();
         }
     }
-*/
-  /*  private void initRecyclerView(){
-        Log.d(TAG, "initRecyclerView: init recyclerview.");
-        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(mStaggeredGridLayoutManager);
-       // mRecyclerViewAdapter = new TrendyDealAdapter(getActivity(), mMatches);
-        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+
+/*    private void getSavedPreferences(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mSelectedInterest = preferences.getString(PreferenceKeys.INTERESTED_IN, getString(R.string.interested_in_anyone));
+        Log.d(TAG, "getSavedPreferences: got selected interest: " + mSelectedInterest);
     }*/
 
-    @Override
+   private void initRecyclerView(){
+        Log.d(TAG, "initRecyclerView: init recyclerview.");
+        mRecyclerViewAdapter = new TrendyDealAdapter(getActivity(), mMatches);
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        Log.d(TAG, "initRecyclerView: init recyclerview end.");
+    }
+
+/*    @Override
     public void onResume() {
         super.onResume();
-//        FirebaseUtil.openFbReference("trendydeals", this);
+        FirebaseUtil.openFbReference("trendydeals", this);
         mRecyclerViewAdapter = new TrendyDealAdapter();
 
         Log.d(TAG, "initRecyclerView: init recyclerview.");
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mStaggeredGridLayoutManager);
-        // mRecyclerViewAdapter = new TrendyDealAdapter(getActivity(), mMatches);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
-//        FirebaseUtil.attachListener();
+        FirebaseUtil.attachListener();
     }
 
     @Override
     public void onPause() {
         super.onPause();
         FirebaseUtil.detachListener();
-    }
+    }*/
 }

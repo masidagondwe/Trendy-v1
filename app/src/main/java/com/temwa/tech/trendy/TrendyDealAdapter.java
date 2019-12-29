@@ -3,7 +3,6 @@ package com.temwa.tech.trendy;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,45 +10,120 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.temwa.tech.trendy.model.TrendyDeal;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TrendyDealAdapter extends RecyclerView.Adapter<TrendyDealAdapter.TrendyDealViewHolder>{
 
-    ArrayList<TrendyDeal> deals;
-    private ImageView imageDeal;
+    private static final String TAG = "TrendyDealAdapter";
 
-    @NonNull
+/*    ArrayList<TrendyDeal> deals;
+    private ImageView imageDeal;*/
+
+    //vars
+    private ArrayList<TrendyDeal> mTrendyDeals = new ArrayList<>();
+    private Context mContext;
+    private IMainActivity mInterface;
+
+
+    public TrendyDealAdapter(){}
+
+    public TrendyDealAdapter(Context context, ArrayList<TrendyDeal> trendyDeals) {
+        mContext = context;
+        mTrendyDeals = trendyDeals;
+    }
+
+
     @Override
     public TrendyDealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_main_feed, parent, false);
+        TrendyDealViewHolder holder = new TrendyDealViewHolder(view);
+        return holder;
+
+        /* Context context = parent.getContext();
         View itemView = LayoutInflater.from(context)
                 .inflate(R.layout.rv_row, parent, false);
-        return new TrendyDealViewHolder(itemView);
+        return new TrendyDealViewHolder(itemView);*/
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TrendyDealViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TrendyDealViewHolder holder, final int position) {
 
-        TrendyDeal deal = deals.get(position);
-        holder.bind(deal);
+        Log.d(TAG, "onBindViewHolder: called.");
+
+        RequestOptions requestOptions = new RequestOptions()
+                .placeholder(R.drawable.ic_launcher_background);
+
+        Glide.with(mContext)
+                .load(mTrendyDeals.get(position).getDeal_image())
+                .apply(requestOptions)
+                .into(holder.imageDeal);
+
+        holder.tvName.setText(mTrendyDeals.get(position).getName());
+        holder.tvRating.setText(mTrendyDeals.get(position).getRating());
+        holder.tvMinPrice.setText(mTrendyDeals.get(position).getMin_price());
+        holder.tvNoOfReviews.setText(mTrendyDeals.get(position).getNo_of_reviews());
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: clicked on: " + mTrendyDeals.get(position).getName());
+
+                mInterface.inflateViewTrendyDealFragment(mTrendyDeals.get(position));
+            }
+        });
+
+       /* TrendyDeal deal = deals.get(position);
+        holder.bind(deal);*/
     }
 
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        mInterface = (IMainActivity) mContext;
+    }
 
     @Override
     public int getItemCount() {
-        return 0;//deals.size();
+        return  mTrendyDeals.size();
+        //return 0;//deals.size();
     }
 
 
-    public class TrendyDealViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener {
-        TextView tvTitle;
+
+        /*private String deal_image;
+        private String name;
+        private String rating;
+        private String no_of_reviews;
+        private String min_price;*/
+
+    public class TrendyDealViewHolder extends RecyclerView.ViewHolder/* implements View.OnClickListener */{
+        ImageView imageDeal;
+        TextView tvName;
+        TextView tvRating;
+        TextView tvNoOfReviews;
+        TextView tvMinPrice;
+        CardView cardView;
+
+        public TrendyDealViewHolder(View itemView) {
+            super(itemView);
+            imageDeal = itemView.findViewById(R.id.deal_image);
+            tvName = itemView.findViewById(R.id.name);
+            tvRating = itemView.findViewById(R.id.rating);
+            tvNoOfReviews = itemView.findViewById(R.id.no_of_reviews);
+            tvMinPrice = itemView.findViewById(R.id.min_price);
+            cardView = itemView.findViewById(R.id.card_view);
+        }
+
+        /*TextView tvTitle;
         TextView tvDescription;
         TextView tvPrice;
 
@@ -63,19 +137,11 @@ public class TrendyDealAdapter extends RecyclerView.Adapter<TrendyDealAdapter.Tr
         }
 
 
-        /*private String deal_image;
-        private String name;
-        private String rating;
-        private String no_of_reviews;
-        private String status;
-        private String min_price;*/
-
         public void bind(TrendyDeal deal) {
-            tvTitle.setText(deal.getName());
-            tvDescription.setText(deal.getRating());
-            tvPrice.setText(deal.getNo_of_reviews());
-            tvPrice.setText(deal.getStatus());
-            tvPrice.setText(deal.getMin_price());
+            tvName.setText(deal.getName());
+            tvRating.setText(deal.getRating());
+            tvNoOfReviews.setText(deal.getNo_of_reviews());
+            tvMinPrice.setText(deal.getMin_price());
             showImage(deal.getDeal_image());
         }
 
@@ -97,6 +163,6 @@ public class TrendyDealAdapter extends RecyclerView.Adapter<TrendyDealAdapter.Tr
                         .centerCrop()
                         .into(imageDeal);
             }
-        }
+        }*/
     }
 }
