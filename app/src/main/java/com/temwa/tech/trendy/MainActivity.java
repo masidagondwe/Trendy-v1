@@ -82,8 +82,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+       // BottomNavigationViewEx mBottomNavigationViewEx = findViewById(R.id.bottom_nav_view);
+
         isFirstLogin();
-        initBottomNavigationView();
+        //initBottomNavigationView();
         init();
     }
 
