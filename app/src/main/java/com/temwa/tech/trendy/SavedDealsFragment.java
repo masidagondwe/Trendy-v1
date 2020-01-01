@@ -27,7 +27,7 @@ import java.util.Set;
 
 
 public class SavedDealsFragment extends Fragment {
-    private static final String TAG = "SavedConnFragment";
+    private static final String TAG = "SavedDealsFragment";
 
     //constants
     private static final int NUM_GRID_COLUMNS = 2;

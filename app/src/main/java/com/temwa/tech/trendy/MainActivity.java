@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.temwa.tech.trendy.model.AppNotification;
 import com.temwa.tech.trendy.model.TrendyDeal;
 import com.temwa.tech.trendy.model.User;
 import com.temwa.tech.trendy.util.PreferenceKeys;
@@ -40,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
 
             case R.id.bottom_nav_search: {
                 Log.d(TAG, "onNavigationItemSelected: SearchFragment.");
-                SavedDealsFragment savedDealsFragment = new SavedDealsFragment();
+                SearchFragment searchDealsFragment = new SearchFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.main_content_frame, savedDealsFragment, getString(R.string.tag_fragment_saved_deals));
-                transaction.addToBackStack(getString(R.string.tag_fragment_saved_deals));
+                transaction.replace(R.id.main_content_frame, searchDealsFragment, getString(R.string.tag_fragment_search_deals));
+                transaction.addToBackStack(getString(R.string.tag_fragment_search_deals));
                 transaction.commit();
                 menuItem.setChecked(true);
                 break;
@@ -51,11 +52,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
 
             case R.id.bottom_nav_notification: {
                 Log.d(TAG, "onNavigationItemSelected: SearchFragment.");
-                /*SavedDealsFragment savedDealsFragment = new SavedDealsFragment();
+                NotificationsFragment notificationsFragment = new NotificationsFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.main_content_frame, savedDealsFragment, getString(R.string.tag_fragment_saved_deals));
-                transaction.addToBackStack(getString(R.string.tag_fragment_saved_deals));
-                transaction.commit();*/
+                transaction.replace(R.id.main_content_frame, notificationsFragment, getString(R.string.tag_fragment_notifications));
+                transaction.addToBackStack(getString(R.string.tag_fragment_notifications));
+                transaction.commit();
                 menuItem.setChecked(true);
                 break;
             }
@@ -82,10 +83,16 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // BottomNavigationViewEx mBottomNavigationViewEx = findViewById(R.id.bottom_nav_view);
+        mBottomNavigationViewEx = findViewById(R.id.bottom_nav_view);
+        //NavigationView navigationView = findViewById(R.id.navigation_view);
+        //View headerView = navigationView.getHeaderView(0);
+        //mHeaderImage = headerView.findViewById(R.id.header_image);
+        //mDrawerLayout = findViewById(R.id.drawer_layout);
 
         isFirstLogin();
-        //initBottomNavigationView();
+        //setHeaderImage();
+        initBottomNavigationView();
+        //setNavigationViewListener();
         init();
     }
 
@@ -168,7 +175,19 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
         transaction.commit();
     }
 
+    @Override
+    public void onNotificationSelected(AppNotification message) {
+        ViewTrendyDealFragment fragment = new ViewTrendyDealFragment();
 
+        Bundle args = new Bundle();
+        args.putParcelable(getString(R.string.intent_message), message);
+        fragment.setArguments(args);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_content_frame, fragment, getString(R.string.tag_fragment_chat));
+        transaction.addToBackStack(getString(R.string.tag_fragment_chat));
+        transaction.commit();
+    }
 
 
 }

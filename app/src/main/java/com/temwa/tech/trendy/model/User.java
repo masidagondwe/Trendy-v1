@@ -7,14 +7,18 @@ public class User implements Parcelable {
 
     private String profile_image;
     private String name;
+    private String posts;
+    private String visits;
     //private String gender;
     private String interested_in;
     private String status;
 
 
-    public User(String profile_image, String name, /*String gender,*/ String interested_in, String status) {
+    public User(String profile_image, String name, /*String gender,*/ String posts, String visits, String interested_in, String status) {
         this.profile_image = profile_image;
         this.name = name;
+        this.posts = posts;
+        this.visits = visits;
         /*this.gender = gender;*/
         this.interested_in = interested_in;
         this.status = status;
@@ -25,7 +29,7 @@ public class User implements Parcelable {
     }
 
 
-    protected User(Parcel in) {
+    private User(Parcel in) {
         profile_image = in.readString();
         name = in.readString();
         /*gender = in.readString();*/
@@ -99,5 +103,21 @@ public class User implements Parcelable {
         /*parcel.writeString(gender);*/
         parcel.writeString(interested_in);
         parcel.writeString(status);
+    }
+
+    public String getPosts() {
+        return posts;
+    }
+
+    public void setPosts(String posts) {
+        this.posts = posts;
+    }
+
+    public String getVisits() {
+        return visits;
+    }
+
+    public void setVisits(String visits) {
+        this.visits = visits;
     }
 }

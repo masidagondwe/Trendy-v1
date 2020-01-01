@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="@color/whitesmoke"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-    <androidx.appcompat.widget.Toolbar
+<!--    <androidx.appcompat.widget.Toolbar
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:background="@color/whitesmoke"
@@ -26,9 +23,231 @@
             android:layout_toRightOf="@+id/back_arrow"
             android:textSize="20sp"/>
 
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>-->
 
-    <RelativeLayout
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardMaxElevation="4dp"
+        card_view:cardElevation="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/profile_card_view">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user_account_avatar"
+                android:id="@+id/profile_image"
+                android:layout_alignParentLeft="true"
+                />
+
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/txt_margin_standard"
+                android:layout_marginLeft="@dimen/txt_margin_standard"
+                android:layout_marginTop="@dimen/txt_margin_standard"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Username"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/profile_image"/>
+
+
+            <TextView
+                android:id="@+id/posts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/profile_image"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="@dimen/txt_margin_standard"
+                android:layout_marginTop="48dp"
+                android:text="Posts"
+                android:textSize="18sp"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/posts_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/profile_image"
+                android:layout_below="@id/posts"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="@dimen/txt_margin_standard"
+                android:layout_marginTop="@dimen/txt_margin_standard"
+                android:text="0 Posts"
+                android:textColor="#000" />
+
+
+
+
+            <TextView
+                android:id="@+id/visits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/posts"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="@dimen/txt_margin_standard"
+                android:layout_marginTop="48dp"
+                android:text="Visits"
+                android:textSize="18sp"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/visits_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/visits"
+                android:layout_toRightOf="@id/posts_no"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="@dimen/txt_margin_standard"
+                android:layout_marginTop="@dimen/txt_margin_standard"
+                android:text="0 visits"
+                android:textColor="#000" />
+
+
+
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_marginStart="@dimen/txt_margin_standard"
+                android:layout_marginLeft="@dimen/txt_margin_standard"
+                android:layout_marginTop="@dimen/txt_margin_standard"
+                android:text="New User"
+                android:textColor="#000" />
+
+
+
+            <TextView
+                android:id="@+id/interested_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/status"
+                android:layout_marginStart="@dimen/txt_margin_standard"
+                android:layout_marginLeft="@dimen/txt_margin_standard"
+                android:layout_marginTop="@dimen/txt_margin_standard"
+                android:text="Trend Interests"
+                android:textColor="#000" />
+
+        </RelativeLayout>
+
+
+
+
+        <!--   <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:padding="5dp">
+
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="150dp"
+                   android:scaleType="center"
+                   android:id="@+id/deal_image"
+                   android:src="@mipmap/ic_launcher"/>
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@+id/deal_image"
+                   android:padding="5dp">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Mitch"
+                       android:id="@+id/name"
+
+                       android:layout_marginTop="10dp"
+                       android:textColor="#000"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Rating:"
+                       android:id="@+id/rating"
+                       android:layout_below="@+id/name"
+                       android:layout_marginTop="4dp"
+                       android:textColor="#000"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Females"
+                       android:id="@+id/no_of_reviews"
+                       android:layout_below="@+id/name"
+                       android:layout_toRightOf="@+id/rating"
+                       android:layout_marginTop="4dp"
+                       android:textColor="#000"
+                       android:layout_marginLeft="10dp"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Starting Price:"
+                       android:id="@+id/min_price"
+                       android:layout_below="@+id/rating"
+                       android:layout_marginTop="4dp"
+                       android:textColor="#000"/>
+
+
+
+               </RelativeLayout>
+
+
+           </RelativeLayout>-->
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/profile_card_view"
+        android:background="@color/whitesmoke"
+        android:id="@+id/profile_recycler_view">
+
+        <TextView
+            android:id="@+id/prof_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/txt_margin_standard"
+            android:layout_marginLeft="@dimen/txt_margin_standard"
+            android:layout_marginTop="@dimen/txt_margin_standard"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Tabs here"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/profile_image"/>
+
+    </androidx.cardview.widget.CardView>
+
+<!--    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar">
@@ -56,7 +275,7 @@
             android:orientation="vertical">
 
 
-            <!-- Top Half of Layout -->
+            &lt;!&ndash; Top Half of Layout &ndash;&gt;
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -75,7 +294,7 @@
             </RelativeLayout>
 
 
-            <!-- Bottom Half of Layout -->
+            &lt;!&ndash; Bottom Half of Layout &ndash;&gt;
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -181,7 +400,7 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </ScrollView>-->
 
 
 </RelativeLayout>

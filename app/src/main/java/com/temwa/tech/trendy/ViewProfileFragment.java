@@ -30,7 +30,7 @@ public class ViewProfileFragment extends Fragment {
     private static final String TAG = "ViewProfileFragment";
 
     //widgets
-    private TextView mFragmentHeading, mName, mInterestedIn, mStatus;
+    private TextView mFragmentHeading, mName, mPosts, mVisits, mInterestedIn, mStatus;
     private CircleImageView mProfileImage;
 
     //vars
@@ -51,18 +51,14 @@ public class ViewProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_view_profile, container, false);
         Log.d(TAG, "onCreateView: started.");
-        //mBackArrow = view.findViewById(R.id.back_arrow);
         mFragmentHeading = view.findViewById(R.id.fragment_heading);
         mProfileImage = view.findViewById(R.id.profile_image);
-        //mLikeButton = view.findViewById(R.id.heart_button);
         mName = view.findViewById(R.id.name);
+        mPosts = view.findViewById(R.id.posts_no);
+        mVisits = view.findViewById(R.id.visits_no);
         mInterestedIn = view.findViewById(R.id.interested_in);
         mStatus = view.findViewById(R.id.status);
 
-
-        //mLikeButton.setOnLikeListener(this);
-        //checkIfConnected();
-        //setBackgroundImage(view);
         init();
 
         return view;
@@ -81,25 +77,5 @@ public class ViewProfileFragment extends Fragment {
             mStatus.setText(mUser.getStatus());
         }
     }
-
-/*    private void setBackgroundImage(View view){
-        ImageView backgroundView = view.findViewById(R.id.background);
-        Glide.with(getActivity())
-                .load(Resources.BACKGROUND_HEARTS)
-                .into(backgroundView);
-    }*/
-
-/*    private void checkIfConnected(){
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        Set<String> savedNames = preferences.getStringSet(PreferenceKeys.SAVED_CONNECTIONS, new HashSet<String>());
-        if(savedNames.contains(mUser.getName())){
-            Log.d(TAG, "checkIfConnected: liked.");
-            //mLikeButton.setLiked(true);
-        }
-        else{
-            Log.d(TAG, "checkIfConnected: not liked.");
-            //mLikeButton.setLiked(false);
-        }
-    }*/
 
 }

@@ -9,7 +9,7 @@ public class TrendyDeal implements Parcelable {
     private String name;
     private String rating;
     private String no_of_reviews;
-    //private String status;
+    private String notification;
     private String min_price;
 
 
@@ -20,6 +20,12 @@ public class TrendyDeal implements Parcelable {
         this.no_of_reviews = no_of_reviews;
        // this.status = status;
         this.min_price = min_price;
+    }
+
+    public TrendyDeal(String deal_image, String name, String notification) {
+        this.deal_image = deal_image;
+        this.name = name;
+        this.notification = notification;
     }
 
     public TrendyDeal() { }
@@ -120,4 +126,11 @@ public class TrendyDeal implements Parcelable {
     }
 
 
+    public String getNotification() {
+        return notification;
+    }
+
+    public void setNotification(String notification) {
+        this.notification = notification;
+    }
 }

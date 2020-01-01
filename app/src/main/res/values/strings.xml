@@ -13,6 +13,8 @@
     <!-- Fragment Tags -->
     <string name="tag_fragment_home">Home</string>
     <string name="tag_fragment_saved_deals">Saved Deals</string>
+    <string name="tag_fragment_search_deals">Search</string>
+    <string name="tag_fragment_notifications">Notifications</string>
     <string name="tag_fragment_messages">Messages</string>
     <string name="tag_fragment_settings">Settings</string>
     <string name="tag_fragment_gallery">Gallery</string>
