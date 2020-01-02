@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
 
     private void initBottomNavigationView() {
         Log.d(TAG, "initBottomNavigationView: initializing bottom navigation view.");
+
         mBottomNavigationViewEx.enableAnimation(false);
         mBottomNavigationViewEx.setOnNavigationItemSelectedListener(this);
     }

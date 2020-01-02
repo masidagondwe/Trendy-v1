@@ -48,8 +48,19 @@
             android:layout_below="@+id/home_app_bar">
 
         </androidx.recyclerview.widget.RecyclerView>
-<!--
-    </RelativeLayout>-->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/home_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            app:srcCompat="@drawable/ic_add_location" />
+        <!--
+            </RelativeLayout>-->
 
 
     </RelativeLayout>
