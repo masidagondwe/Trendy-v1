@@ -101,7 +101,7 @@
         android:layout_height="100dp"
         android:id="@+id/progressBar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="201dp"
         android:visibility="invisible"/>
 
 </RelativeLayout>
