@@ -171,8 +171,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
         fragment.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.main_content_frame, fragment, getString(R.string.tag_fragment_view_profile));
-        transaction.addToBackStack(getString(R.string.tag_fragment_view_profile));
+        transaction.replace(R.id.main_content_frame, fragment, getString(R.string.tag_fragment_view_deal));
+        transaction.addToBackStack(getString(R.string.tag_fragment_view_deal));
         transaction.commit();
     }
 

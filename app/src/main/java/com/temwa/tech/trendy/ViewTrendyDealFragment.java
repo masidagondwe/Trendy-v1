@@ -1,13 +1,7 @@
 package com.temwa.tech.trendy;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,8 +20,11 @@ import com.temwa.tech.trendy.util.PreferenceKeys;
 import java.util.HashSet;
 import java.util.Set;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-public class ViewTrendyDealFragment extends Fragment implements OnLikeListener {
+
+public class ViewTrendyDealFragment extends Fragment/* implements OnLikeListener */{
 
 
     private static final String TAG = "ViewTrendyDealFragment";
@@ -58,19 +55,19 @@ public class ViewTrendyDealFragment extends Fragment implements OnLikeListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_view_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_view_trendy_deal, container, false);
         Log.d(TAG, "onCreateView: started.");
         mBackArrow = view.findViewById(R.id.back_arrow);
         mFragmentHeading = view.findViewById(R.id.fragment_heading);
-        mDealImage = view.findViewById(R.id.deal_image);
+        mDealImage = view.findViewById(R.id.deal_images);
         mLikeButton = view.findViewById(R.id.heart_button);
-        mName = view.findViewById(R.id.name);
-        mRating = view.findViewById(R.id.rating);
-        mNoOfReviews = view.findViewById(R.id.no_of_reviews);
-        mMinPrice = view.findViewById(R.id.min_price);
+        mName = view.findViewById(R.id.deal_name);
+        mRating = view.findViewById(R.id.deal_rating);
+        mNoOfReviews = view.findViewById(R.id.no_of_deal_reviews);
+        mMinPrice = view.findViewById(R.id.deal_min_price);
 
 
-        mLikeButton.setOnLikeListener(this);
+       /* mLikeButton.setOnLikeListener(this);*/
         checkIfSaved();
         //setBackgroundImage(view);
         init();
@@ -97,14 +94,15 @@ public class ViewTrendyDealFragment extends Fragment implements OnLikeListener {
         Set<String> savedNames = preferences.getStringSet(PreferenceKeys.SAVED_DEALS, new HashSet<String>());
         if(savedNames.contains(mTrendyDeal.getName())){
             Log.d(TAG, "checkIfConnected: liked.");
-            mLikeButton.setLiked(true);
+           // mLikeButton.setLiked(true);
         }
         else{
             Log.d(TAG, "checkIfConnected: not liked.");
-            mLikeButton.setLiked(false);
+           // mLikeButton.setLiked(false);
         }
     }
 
+/*
     @Override
     public void liked(LikeButton likeButton) {
         Log.d(TAG, "liked: liked");
@@ -131,5 +129,6 @@ public class ViewTrendyDealFragment extends Fragment implements OnLikeListener {
         editor.putStringSet(PreferenceKeys.SAVED_DEALS, savedNames);
         editor.commit();
     }
+*/
 
 }
