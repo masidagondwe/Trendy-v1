@@ -1,29 +1,23 @@
 package com.temwa.tech.trendy;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.temwa.tech.trendy.model.TrendyDeal;
-import com.temwa.tech.trendy.util.FirebaseUtil;
-import com.temwa.tech.trendy.util.PreferenceKeys;
 import com.temwa.tech.trendy.util.TrendyDeals;
 
 import java.util.ArrayList;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
 
     private static final String TAG = "HomeFragment";
@@ -32,6 +26,7 @@ public class HomeFragment extends Fragment {
 
     //widgets
     private RecyclerView mRecyclerView;
+    FloatingActionButton btnAddDeal;
 
     //vars
     private ArrayList<TrendyDeal> mMatches = new ArrayList<>();
@@ -44,7 +39,11 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         Log.d(TAG, "onCreateView: started.");
         mRecyclerView = view.findViewById(R.id.recycler_view_deals);
+        btnAddDeal = view.findViewById(R.id.add_deal_fab);
 
+        btnAddDeal.setOnClickListener(this);
+
+        Log.d(TAG, "initRecyclerView: after fab click.");
         findMatches();
 
         return view;
@@ -52,12 +51,12 @@ public class HomeFragment extends Fragment {
 
 
    private void findMatches() {
-       TrendyDeals users = new TrendyDeals();
+       TrendyDeals deals = new TrendyDeals();
         if (mMatches != null) {
             mMatches.clear();
         }
-        for (TrendyDeal user : users.DEALS) {
-            mMatches.add(user);
+        for (TrendyDeal deal : deals.DEALS) {
+            mMatches.add(deal);
         }
         if (mRecyclerViewAdapter == null) {
             initRecyclerView();
@@ -76,6 +75,15 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         Log.d(TAG, "initRecyclerView: init recyclerview end.");
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        Log.d(TAG, "initRecyclerView: fab clicked");
+        AddDealFragment fragment = new AddDealFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_content_frame, fragment, getString(R.string.tag_fragment_add_deal));
     }
 
 /*    @Override

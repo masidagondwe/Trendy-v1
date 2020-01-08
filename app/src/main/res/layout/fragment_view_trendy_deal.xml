@@ -73,22 +73,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/heart_button"
-                    app:icon_size="28dp"
+                    app:icon_size="10dp"
                     app:icon_type="heart"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
+                    android:layout_above="@id/deal_images"
                     android:layout_alignParentRight="true">
 
                 </com.like.LikeButton>
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
                     android:id="@+id/deal_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_centerInParent="true"
-                    />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
 
 
             </RelativeLayout>
@@ -114,7 +112,8 @@
                         android:background="@null"
                         android:id="@+id/deal_name"
                         android:layout_marginLeft="5dp"
-                        android:textSize="20sp"
+                        android:textSize="25sp"
+                        android:fontFamily="sans-serif-medium"
                         android:text="Name"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_horizontal"
@@ -122,6 +121,25 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:id="@+id/deal_description"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="25sp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+                        android:layout_gravity="center_vertical"
+                        android:gravity="left"
+                        android:textColor="@color/Black"/>
+
+                </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -130,7 +148,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
+                        android:layout_centerHorizontal="false"
                         android:layout_centerVertical="true">
 
                         <TextView
@@ -139,6 +157,7 @@
                             android:text="Rating: "
                             android:id="@+id/deal_rating_text"
                             android:textSize="20sp"
+                            android:fontFamily="sans-serif-medium"
                             android:textColor="@color/Black"
                             android:layout_gravity="center_vertical"/>
 
@@ -166,15 +185,16 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
+                        android:layout_centerHorizontal="false"
                         android:layout_centerVertical="true">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Number of Reviews: "
+                            android:text="Reviews: "
                             android:id="@+id/text_no_of_reviews"
                             android:textSize="20sp"
+                            android:fontFamily="sans-serif-medium"
                             android:textColor="@color/Black"
                             android:layout_gravity="center_vertical"/>
 
@@ -201,15 +221,16 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
+                        android:layout_centerHorizontal="false"
                         android:layout_centerVertical="true">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Starting Price: "
+                            android:text="Price : "
                             android:id="@+id/text_min_price"
                             android:textSize="20sp"
+                            android:fontFamily="sans-serif-medium"
                             android:textColor="@color/Black"
                             android:layout_gravity="center_vertical"/>
 
@@ -231,6 +252,57 @@
 
             </LinearLayout>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_card_view"
+                android:layout_marginBottom="2dp"
+                android:background="@color/whitesmoke"
+                android:id="@+id/profile_recycler_view">
+
+                <TextView
+                    android:id="@+id/deal_view_loc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/txt_margin_standard"
+                    android:layout_marginLeft="@dimen/txt_margin_standard"
+                    android:layout_marginTop="@dimen/txt_margin_standard"
+                    android:fontFamily="sans-serif-condensed"
+                    android:hint="Geo location here*"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/profile_image"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_card_view"
+                android:layout_marginBottom="2dp"
+                android:background="@color/whitesmoke"
+                android:id="@+id/deal__recycler_view">
+
+
+                <TextView
+                    android:id="@+id/deal_view_reviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/txt_margin_standard"
+                    android:layout_marginLeft="@dimen/txt_margin_standard"
+                    android:layout_marginTop="@dimen/txt_margin_standard"
+                    android:fontFamily="sans-serif-condensed"
+                    android:hint="Customer Reviews here*"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/profile_image"/>
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

@@ -21,6 +21,7 @@
     <string name="tag_fragment_photo">Photo</string>
     <string name="tag_fragment_view_profile">View Profile</string>
     <string name="tag_fragment_view_deal">View Deal</string>
+    <string name="tag_fragment_add_deal">Add Deal</string>
     <string name="tag_fragment_chat">Chat</string>
     <string name="tag_fragment_agreement">Agreement</string>
 

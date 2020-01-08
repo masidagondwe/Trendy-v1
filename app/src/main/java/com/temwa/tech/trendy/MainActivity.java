@@ -177,6 +177,21 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
     }
 
     @Override
+    public void inflateAddDealFragment() {
+
+        AddDealFragment fragment = new AddDealFragment();
+
+        Bundle args = new Bundle();
+        //args.putParcelable(getString(R.string.intent_deal), deal);
+        fragment.setArguments(args);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_content_frame, fragment, getString(R.string.tag_fragment_add_deal));
+        //transaction.addToBackStack(getString(R.string.tag_fragment_add_deal));
+        //transaction.commit();
+    }
+
+    @Override
     public void onNotificationSelected(AppNotification message) {
         ViewTrendyDealFragment fragment = new ViewTrendyDealFragment();
 
@@ -192,6 +207,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
 
     @Override
     public void onNotificationSelected(TrendyDeal trendyDeal) {
+
+
 
     }
 
