@@ -10,4 +10,6 @@ public interface IMainActivity {
     void inflateViewTrendyDealFragment(TrendyDeal message);
 
     void onNotificationSelected(AppNotification message);
+
+    void onNotificationSelected(TrendyDeal trendyDeal);
 }

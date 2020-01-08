@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
             }
 
             case R.id.bottom_nav_notification: {
-                Log.d(TAG, "onNavigationItemSelected: SearchFragment.");
+                Log.d(TAG, "onNavigationItemSelected: NotificationsFragment.");
                 NotificationsFragment notificationsFragment = new NotificationsFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_content_frame, notificationsFragment, getString(R.string.tag_fragment_notifications));
@@ -188,6 +188,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
         transaction.replace(R.id.main_content_frame, fragment, getString(R.string.tag_fragment_chat));
         transaction.addToBackStack(getString(R.string.tag_fragment_chat));
         transaction.commit();
+    }
+
+    @Override
+    public void onNotificationSelected(TrendyDeal trendyDeal) {
+
     }
 
 

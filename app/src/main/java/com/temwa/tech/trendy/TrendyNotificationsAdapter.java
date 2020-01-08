@@ -31,7 +31,7 @@ public class TrendyNotificationsAdapter extends RecyclerView.Adapter<TrendyNotif
     private IMainActivity mInterface;
 
 
-    //public TrendyNotificationsAdapter(){}
+    public TrendyNotificationsAdapter(){}
 
     public TrendyNotificationsAdapter(Context context, ArrayList<TrendyDeal> trendyDeals) {
         mContext = context;
@@ -52,7 +52,29 @@ public class TrendyNotificationsAdapter extends RecyclerView.Adapter<TrendyNotif
 
         //Log.d(TAG, "on");
 
-        final TrendyDeal trendyDeal = mTrendyDeals.get(position);
+        RequestOptions requestOptions = new RequestOptions()
+                .placeholder(R.drawable.ic_launcher_background);
+
+        Glide.with(mContext)
+                .load(mTrendyDeals.get(position).getDeal_image())
+                .apply(requestOptions)
+                .into(holder.imageDeal);
+
+        holder.tvName.setText(mTrendyDeals.get(position).getName());
+        holder.tvNotification.setText(mTrendyDeals.get(position).getNotification());
+
+        //holder.parent.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: clicked on: " + mTrendyDeals.get(position).getName());
+
+                mInterface.onNotificationSelected(mTrendyDeals.get(position));
+            }
+        });
+
+
+/*        final TrendyDeal trendyDeal = mTrendyDeals.get(position);
 
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background);
@@ -72,7 +94,7 @@ public class TrendyNotificationsAdapter extends RecyclerView.Adapter<TrendyNotif
 
                 mInterface.onNotificationSelected(new AppNotification(trendyDeal, AppNotifications.NOTIFICATIONS[position]));
             }
-        });
+        });*/
     }
 
 
@@ -93,14 +115,16 @@ public class TrendyNotificationsAdapter extends RecyclerView.Adapter<TrendyNotif
         ImageView imageDeal;
         TextView tvName;
         TextView tvNotification;
-        RelativeLayout parent;
+        //RelativeLayout parent;
+        CardView cardView;
 
         public TrendyNotificationsViewHolder(View itemView) {
             super(itemView);
             imageDeal = itemView.findViewById(R.id.notification_image);
             tvName = itemView.findViewById(R.id.notification_name);
             tvNotification = itemView.findViewById(R.id.notification_text);
-            parent = itemView.findViewById(R.id.parent_view);
+            //parent = itemView.findViewById(R.id.parent_view);
+            cardView = itemView.findViewById(R.id.notifications_card_view);
         }
     }
 }

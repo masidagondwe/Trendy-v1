@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:background="@color/whitesmoke">
+    android:background="@color/white">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="4dp"
-        card_view:cardMaxElevation="4dp"
-        card_view:cardElevation="2dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardMaxElevation="2dp"
+        card_view:cardElevation="0dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="6dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:id="@+id/profile_card_view">
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:id="@+id/notifications_card_view">
 
 
         <RelativeLayout
@@ -26,8 +26,8 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/colors"
                 android:id="@+id/notification_image"
@@ -43,12 +43,12 @@
                 android:layout_toRightOf="@id/notification_image"
                 android:layout_marginStart="@dimen/txt_margin_standard"
                 android:layout_marginLeft="@dimen/txt_margin_standard"
-                android:layout_marginTop="@dimen/txt_margin_standard"
+                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed"
                 android:hint="Notification Header"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="28sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_below="@+id/profile_image"/>
 
@@ -61,7 +61,7 @@
                 android:layout_below="@+id/notification_name"
                 android:layout_marginStart="@dimen/txt_margin_standard"
                 android:layout_marginLeft="@dimen/txt_margin_standard"
-                android:layout_marginTop="@dimen/txt_margin_standard"
+                android:layout_marginTop="10dp"
                 android:text="Notification text Notification text"
                 android:textColor="#000" />
 

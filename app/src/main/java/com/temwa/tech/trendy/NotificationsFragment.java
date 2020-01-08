@@ -45,17 +45,18 @@ public class NotificationsFragment extends Fragment {
         return view;
     }
 
+
     private void getConnections() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        Set<String> savedNames = preferences.getStringSet(PreferenceKeys.SAVED_DEALS, new HashSet<String>());
+        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        //Set<String> savedNames = preferences.getStringSet(PreferenceKeys.SAVED_DEALS, new HashSet<String>());
         TrendyDeals deals = new TrendyDeals();
         if(mDeals != null){
             mDeals.clear();
         }
-        for(TrendyDeal user: deals.DEALS){
-            if(savedNames.contains(user.getName())){
-                mDeals.add(user);
-            }
+        for(TrendyDeal deal: deals.DEALS){
+            //if(savedNames.contains(deal.getName())){
+                mDeals.add(deal);
+           // }
         }
         if(mRecyclerViewAdapter == null){
             initRecyclerView();
@@ -67,7 +68,7 @@ public class NotificationsFragment extends Fragment {
 
 
     private void initRecyclerView(){
-        Log.d(TAG, "initRecyclerView: init recyclerview.");
+        Log.d(TAG, "initRecyclerView: init recyclerview. notifications");
         mRecyclerViewAdapter = new TrendyNotificationsAdapter(getActivity(), mDeals);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
