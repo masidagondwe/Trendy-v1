@@ -65,7 +65,7 @@
                     android:layout_marginTop="35dp"
                     android:layout_below="@+id/input_confirm_password"
                     android:text="@string/register"
-                    android:background="@drawable/blue_button"/>
+                    android:background="@drawable/email_sign_in_btn"/>
 
             </RelativeLayout>
 
