@@ -29,7 +29,7 @@
                 android:layout_height="210dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/trendy_logo"
                 android:contentDescription="Trendy Logo"
                 android:src="@drawable/trendy_logo_1" />

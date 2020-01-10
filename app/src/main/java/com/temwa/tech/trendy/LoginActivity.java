@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +29,9 @@ public class LoginActivity extends AppCompatActivity {
     //Firebase
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    //google sign in
+    GoogleApi
+
     // widgets
     private EditText mEmail, mPassword;
     private ProgressBar mProgressBar;
@@ -38,6 +42,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Log.d(TAG, "onClick: attempting to authenticate.1");
+
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
         mEmail = findViewById(R.id.email);
         mPassword =  findViewById(R.id.password);
         mProgressBar =  findViewById(R.id.progressBar);
