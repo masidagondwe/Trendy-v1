@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     //google sign in
-    GoogleApi
+   // GoogleApi
 
     // widgets
     private EditText mEmail, mPassword;
