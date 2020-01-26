@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //2.    Google Sign-in button click:
+        //2.    Google Sign-in button click :
 
 
         //3.    Facebook Sign-in button click:
