@@ -43,4 +43,8 @@
     <string name="title_activity_test">TestActivity</string>
 
 
+    <string name="facebook_app_id">2901439393220450</string>
+    <string name="fb_login_protocol_scheme">fb2901439393220450</string>
+
+
 </resources>

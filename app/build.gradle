@@ -42,7 +42,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:16.0.1'
 
     //facebook authentication
-    //implementation 'com.facebook.android:facebook-android-sdk:4.x'
+    implementation 'com.facebook.android:facebook-login:[5,6)'
+
 
     //google authentication
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
