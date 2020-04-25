@@ -5,25 +5,32 @@ import android.os.Parcelable;
 
 public class TrendyDeal implements Parcelable {
 
-    private String deal_image;
+    private String id;
+    //private String deal_image;
     private String name;
+    private String description;
     private String rating;
     private String no_of_reviews;
-    private String notification;
     private String min_price;
+    private String imageUrl;
+    private String imageName;
 
+    private String notification;
 
-    public TrendyDeal(String deal_image, String name, String rating, String no_of_reviews, String min_price) {
-        this.deal_image = deal_image;
+    public TrendyDeal(String id, String name, String description, String rating, String no_of_reviews, String min_price, String imageUrl, String imageName) {
+        this.id = id;
         this.name = name;
         this.rating = rating;
         this.no_of_reviews = no_of_reviews;
-       // this.status = status;
+        this.description = description;
         this.min_price = min_price;
+        this.imageUrl = imageUrl;
+        this.imageName = imageName;
     }
 
+
     public TrendyDeal(String deal_image, String name, String notification) {
-        this.deal_image = deal_image;
+        //this.deal_image = deal_image;
         this.name = name;
         this.notification = notification;
     }
@@ -32,11 +39,11 @@ public class TrendyDeal implements Parcelable {
 
 
     protected TrendyDeal(Parcel in) {
-        deal_image = in.readString();
+        //deal_image = in.readString();
         name = in.readString();
         rating = in.readString();
         no_of_reviews = in.readString();
-        //status = in.readString();
+        description = in.readString();
         min_price = in.readString();
     }
 
@@ -53,16 +60,39 @@ public class TrendyDeal implements Parcelable {
         }
     };
 
+    public String getID() {
+        return id;
+    }
+
+    public void setID(String ID) {
+        this.id = ID;
+    }
 
 
     public String getDeal_image() {
-        return deal_image;
+        return imageName;
     }
 
     public void setDeal_image(String deal_image) {
-        this.deal_image = deal_image;
+        this.imageName = deal_image;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
 
     public String getName() {
         return name;
@@ -91,13 +121,13 @@ public class TrendyDeal implements Parcelable {
     }
 
 
-/*    public String getStatus() {
-        return status;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }*/
+    public void setDescription(String status) {
+        this.description = description;
+    }
 
 
     public String getMin_price() {
@@ -117,11 +147,11 @@ public class TrendyDeal implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(deal_image);
+        parcel.writeString(imageName);
         parcel.writeString(name);
         parcel.writeString(rating);
         parcel.writeString(no_of_reviews);
-       // parcel.writeString(status);
+        parcel.writeString(description);
         parcel.writeString(min_price);
     }
 

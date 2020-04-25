@@ -60,7 +60,7 @@ public class FirebaseUtil {
         }
 
         mDeals = new ArrayList<TrendyDeal>();
-//        mDatabaseReference = mFirebaseDatabase.getReference().child(ref);
+        mDatabaseReference = mFirebaseDatabase.getReference().child(ref);
     }
 
     private static void signIn() {
@@ -69,7 +69,7 @@ public class FirebaseUtil {
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build());
 
-// Create and launch sign-in intent
+        // Create and launch sign-in intent
         caller.startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()

@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
         setContentView(R.layout.activity_main);
 
         mBottomNavigationViewEx = findViewById(R.id.bottom_nav_view);
+        //mBottomNavigationViewEx.clearAnimation();
+        //mBottomNavigationViewEx.enableAnimation(false);
         //NavigationView navigationView = findViewById(R.id.navigation_view);
         //View headerView = navigationView.getHeaderView(0);
         //mHeaderImage = headerView.findViewById(R.id.header_image);
@@ -111,6 +113,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
 
         mBottomNavigationViewEx.enableAnimation(false);
         mBottomNavigationViewEx.setOnNavigationItemSelectedListener(this);
+        mBottomNavigationViewEx.clearAnimation();
+        mBottomNavigationViewEx.enableShiftingMode(0,false);
+       // mBottomNavigationViewEx.enableShiftingMode(1,false);
+       // mBottomNavigationViewEx.enableShiftingMode(2,false);
+       // mBottomNavigationViewEx.enableShiftingMode(4,false);
     }
 
 
